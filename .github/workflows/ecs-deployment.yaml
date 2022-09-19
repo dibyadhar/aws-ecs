@@ -22,11 +22,7 @@ env:
 jobs:
   build:
     name: Build and Deploy to ECS
-    runs-on: ubuntu-latest
-    defaults: 
-      run:
-        working-directory: application
-        
+    runs-on: ubuntu-latest      
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
@@ -81,7 +77,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: ./task-definition.json
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
