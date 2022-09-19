@@ -71,7 +71,7 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
     
     - name: Download task definition
-      qqrun: |
+      run: |
         aws ecs describe-task-definition --task-definition hello-world \
         --query taskDefinition > task-definition.json
 
