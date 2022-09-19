@@ -26,8 +26,7 @@ jobs:
     defaults: 
       run:
         working-directory: application
-        shell: bash 
-    
+        
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
@@ -42,7 +41,7 @@ jobs:
     #     aws-region: ${{env.AWS_REGION}}
     #     mask-aws-account-id: false
 
-   # Setup AWS Via Access Keys
+    # Setup AWS Via Access Keys
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -62,6 +61,7 @@ jobs:
       
     # Build Image
     - name: Build, tag, and push image to Amazon ECR
+      id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
