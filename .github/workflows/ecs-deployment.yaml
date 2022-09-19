@@ -21,7 +21,7 @@ env:
 
 jobs:
   build:
-    name: Validate Terraform Code
+    name: Build and Deploy to ECS
     runs-on: ubuntu-latest
     defaults: 
       run:
@@ -49,6 +49,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
+        mask-aws-account-id: false
 
     # Verify AWS Account
     - name: Verify Caller Identity
