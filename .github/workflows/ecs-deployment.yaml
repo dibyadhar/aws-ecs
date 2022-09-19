@@ -13,7 +13,7 @@ permissions:
 
 env: 
   AWS_REGION: eu-west-2                                                                  # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: 111788162356.dkr.ecr.eu-west-2.amazonaws.com/ecs-hello-world           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: ecs-hello-world           # set this to your Amazon ECR repository name
   ECS_SERVICE: hello-world-cluster                                                       # set this to your Amazon ECS service name
   ECS_CLUSTER: hello-world                                                               # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: hello-world:2                                                     # set this to the path to your Amazon ECS task definition
